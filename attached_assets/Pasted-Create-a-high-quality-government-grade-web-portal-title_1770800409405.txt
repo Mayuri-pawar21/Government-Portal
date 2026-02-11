@@ -1,0 +1,114 @@
+Create a high-quality, government-grade web portal titled:
+
+"AI-Based Image Forgery Detection and Verification System for Government Welfare Schemes"
+
+Objective of the System:
+This portal is designed to support government authorities in verifying images submitted by applicants for welfare schemes. The system uses AI-based image processing and detection techniques to identify forged, manipulated, or AI-generated images that may be used to misuse government welfare portals. The system provides risk-based assessment only and does not replace human decision-making.
+
+Intended Users:
+Government verification officers and authorized officials.
+
+System Philosophy:
+• AI-assisted, not AI-controlled
+• Decision support, not automated approval
+• Transparency and responsible use of AI
+
+------------------------------------
+PAGE 1: Home / Overview
+------------------------------------
+Title:
+Government Welfare Image Verification Portal
+
+Subtitle:
+AI-Assisted Image Authenticity Verification System
+
+Description:
+"Government welfare schemes rely on image submissions as proof of eligibility, damage assessment, or verification. However, misuse of such portals through forged, manipulated, or AI-generated images can mislead authorities and impact genuine beneficiaries. This portal applies AI-based image detection techniques to assist officials in identifying suspicious image submissions and improving the integrity of welfare distribution."
+
+Key Highlights (Bullet Points):
+• Detects forged, manipulated, or AI-generated images
+• Reduces misuse of welfare scheme portals
+• Assists officials with faster and reliable verification
+• Supports transparent and fair decision-making
+
+Primary Action Button:
+Text: Start Image Verification
+Action: Navigate to Image Upload page
+
+------------------------------------
+PAGE 2: Image Upload & Verification
+------------------------------------
+Page Title:
+Upload Applicant Image for Verification
+
+Instruction Text:
+"Upload the image submitted by the applicant for welfare scheme verification. The system will analyze the image and provide an AI-assisted authenticity assessment."
+
+Image Upload Field:
+• Accept formats: JPG, JPEG, PNG
+• Field name: image_file
+
+Input Field:
+Label: Application Reference Number
+Placeholder: Enter application ID (optional)
+
+Dropdown Field:
+Label: Select Welfare Scheme
+Options:
+• PM Kisan Yojana
+• Farmer Relief / Compensation Scheme
+• Other Government Welfare Scheme
+
+Upload Guidelines (small text):
+"Please upload clear, original, and unedited images for accurate verification."
+
+Submit Button:
+Text: Verify Image Authenticity
+
+On Submit:
+• Send image and form data to an external AI backend using POST method
+• Await AI analysis response
+
+------------------------------------
+PAGE 3: Verification Result
+------------------------------------
+Page Title:
+Image Verification Result
+
+Result Display (Structured Blocks):
+• Image Authenticity Status:
+  Likely Genuine / Possibly Forged / Uncertain
+
+• Confidence Score:
+  Display as percentage value
+
+• Risk Level:
+  Low / Medium / High
+
+Explanation Text:
+"The displayed result indicates the likelihood of image forgery or manipulation based on AI-based image analysis."
+
+Mandatory Disclaimer (Highlighted):
+"This AI-based assessment is probabilistic and intended solely to assist government authorities. Final verification, approval, or rejection decisions must be made manually by authorized officials."
+
+------------------------------------
+Design & UI Guidelines:
+------------------------------------
+• Government-portal style design
+• Clean, minimal layout
+• Light background with blue and grey theme
+• No animations or decorative visuals
+• Clear typography and professional appearance
+• Focus on usability, clarity, and trust
+
+------------------------------------
+Technical & Ethical Constraints:
+------------------------------------
+• Website must support integration with an external AI backend via REST API
+• Display backend response dynamically on result page
+• Do NOT include chatbot functionality
+• Do NOT include login/authentication
+• Do NOT auto-approve or auto-reject applications
+• Do NOT claim 100% accuracy
+
+This portal must represent a responsible, transparent, and real-world AI-assisted system suitable for government welfare applications.
