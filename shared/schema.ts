@@ -15,6 +15,7 @@ export const verifications = pgTable("verifications", {
   authenticityStatus: text("authenticity_status").notNull(), // 'Likely Genuine', 'Possibly Forged', 'Uncertain'
   confidenceScore: integer("confidence_score").notNull(), // 0-100
   riskLevel: text("risk_level").notNull(), // 'Low', 'Medium', 'High'
+  forgeryParameters: jsonb("forgery_parameters"), // List of detected anomalies
   
   createdAt: timestamp("created_at").defaultNow(),
 });

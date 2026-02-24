@@ -31,13 +31,20 @@ export async function registerRoutes(
       
       let authenticityStatus = "Likely Genuine";
       let riskLevel = "Low";
+      let forgeryParameters: string[] = [];
 
       if (isForged) {
         authenticityStatus = "Possibly Forged";
         riskLevel = "High";
+        forgeryParameters = [
+          "Pixel Manipulation (Resampling Detected)",
+          "Metadata Inconsistency",
+          "Compression Artifacts"
+        ];
       } else if (Math.random() > 0.8) {
         authenticityStatus = "Uncertain";
         riskLevel = "Medium";
+        forgeryParameters = ["Inconclusive Noise Pattern"];
       }
 
       const verification = await storage.createVerification({
@@ -48,7 +55,8 @@ export async function registerRoutes(
         mimeType: req.file.mimetype,
         authenticityStatus,
         confidenceScore,
-        riskLevel
+        riskLevel,
+        forgeryParameters
       });
 
       res.status(201).json(verification);

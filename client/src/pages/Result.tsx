@@ -172,6 +172,20 @@ export default function Result() {
                         </div>
                       </dl>
                     </div>
+
+                    {(verification.forgeryParameters as string[])?.length > 0 && (
+                      <div>
+                        <h4 className="text-sm font-semibold text-red-600 uppercase tracking-wider mb-3">Detected Anomalies</h4>
+                        <ul className="bg-red-50 rounded-lg border border-red-100 divide-y divide-red-200/50">
+                          {(verification.forgeryParameters as string[]).map((param, index) => (
+                            <li key={index} className="px-4 py-2 text-sm text-red-700 font-medium flex items-center gap-2">
+                              <AlertTriangle className="h-3 w-3" />
+                              {param}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
                   {/* Visual Analysis Placeholder */}

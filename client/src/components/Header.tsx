@@ -23,11 +23,6 @@ export function Header() {
           <Link href="/verify" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors hidden sm:block">
             New Verification
           </Link>
-          <div className="h-6 w-px bg-border hidden sm:block" />
-          <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-primary">
-            <LogOut className="h-4 w-4" />
-            Sign Out
-          </Button>
         </nav>
       </div>
     </header>
