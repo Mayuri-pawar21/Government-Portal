@@ -24,10 +24,11 @@ export async function registerRoutes(
 
       // MOCK AI ANALYSIS
       // In a real system, we would send req.file.buffer to an external AI service.
-      // Here we simulate the analysis.
+      // Here we simulate the analysis with a bias towards genuine documents.
       
-      const isForged = Math.random() > 0.7; // 30% chance of forgery for demo
-      const confidenceScore = Math.floor(Math.random() * 20) + 80; // 80-99% confidence
+      const isForged = Math.random() > 0.95; // 5% chance of forgery for demo
+      const isUncertain = !isForged && Math.random() > 0.90; // 10% chance of uncertainty
+      const confidenceScore = Math.floor(Math.random() * 15) + 85; // 85-99% confidence
       
       let authenticityStatus = "Likely Genuine";
       let riskLevel = "Low";
@@ -41,7 +42,7 @@ export async function registerRoutes(
           "Metadata Inconsistency",
           "Compression Artifacts"
         ];
-      } else if (Math.random() > 0.8) {
+      } else if (isUncertain) {
         authenticityStatus = "Uncertain";
         riskLevel = "Medium";
         forgeryParameters = ["Inconclusive Noise Pattern"];
