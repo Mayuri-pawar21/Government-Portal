@@ -24,10 +24,10 @@ export async function registerRoutes(
 
       // MOCK AI ANALYSIS
       // In a real system, we would send req.file.buffer to an external AI service.
-      // Here we simulate the analysis with a bias towards genuine documents.
+      // Here we simulate the analysis.
       
-      const isForged = Math.random() > 0.95; // 5% chance of forgery for demo
-      const isUncertain = !isForged && Math.random() > 0.90; // 10% chance of uncertainty
+      const isForged = Math.random() > 0.8; // 20% chance of forgery for demo
+      const isUncertain = !isForged && Math.random() > 0.85; // ~15% chance of uncertainty
       const confidenceScore = Math.floor(Math.random() * 15) + 85; // 85-99% confidence
       
       let authenticityStatus = "Likely Genuine";
