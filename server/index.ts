@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { pool } from "./db";
 
 const app = express();
 const httpServer = createServer(app);
@@ -60,6 +61,29 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Auto-migrate: ensure DB schema is up to date on every server start (including production)
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS verifications (
+        id SERIAL PRIMARY KEY,
+        reference_number TEXT,
+        welfare_scheme TEXT NOT NULL,
+        file_name TEXT NOT NULL,
+        file_size INTEGER NOT NULL,
+        mime_type TEXT NOT NULL,
+        authenticity_status TEXT NOT NULL,
+        confidence_score INTEGER NOT NULL,
+        risk_level TEXT NOT NULL,
+        forgery_parameters JSONB,
+        created_at TIMESTAMP DEFAULT NOW()
+      );
+      ALTER TABLE verifications ADD COLUMN IF NOT EXISTS forgery_parameters JSONB;
+    `);
+    log("Database schema verified");
+  } catch (err) {
+    log(`Database migration warning: ${(err as Error).message}`);
+  }
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {

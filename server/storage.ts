@@ -8,6 +8,7 @@ export interface IStorage {
     authenticityStatus: string;
     confidenceScore: number;
     riskLevel: string;
+    forgeryParameters?: string[];
   }): Promise<Verification>;
   getVerification(id: number): Promise<Verification | undefined>;
   listVerifications(): Promise<Verification[]>;
@@ -18,6 +19,7 @@ export class DatabaseStorage implements IStorage {
     authenticityStatus: string;
     confidenceScore: number;
     riskLevel: string;
+    forgeryParameters?: string[];
   }): Promise<Verification> {
     const [newVerification] = await db
       .insert(verifications)
