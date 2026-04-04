@@ -9,11 +9,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import { 
   AlertTriangle, 
-  CheckCircle2, 
-  XCircle, 
   FileText, 
   ArrowLeft,
-  Download,
   Printer
 } from "lucide-react";
 import { format } from "date-fns";
@@ -85,10 +82,6 @@ export default function Result() {
               <Button variant="outline" size="sm" onClick={() => window.print()}>
                 <Printer className="mr-2 h-4 w-4" />
                 Print Report
-              </Button>
-              <Button variant="outline" size="sm">
-                <Download className="mr-2 h-4 w-4" />
-                Download PDF
               </Button>
             </div>
           </div>

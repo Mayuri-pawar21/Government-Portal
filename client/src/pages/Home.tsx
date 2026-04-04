@@ -64,9 +64,6 @@ export default function Home() {
                     Start Verification
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 h-12 px-8">
-                  View System Logs
-                </Button>
               </div>
             </div>
           </div>
